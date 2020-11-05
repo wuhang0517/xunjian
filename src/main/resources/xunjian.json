@@ -1,0 +1,67 @@
+{
+    "allCount":"4",
+    "record": [
+        {
+            "failSize":"2",
+            "trxCode": "CIBS1002",
+            "trxCodeCN": "汇出汇款请求接口",
+            "tranCount": "123",
+            "ansTime": "100ms",
+            "ansRet": "99.99%",
+            "sucRet": "99%",
+            "acceptRet": "99%",
+            "sucCode": "AAAAAAA",
+            "sucCount": "1234",
+            "sucPresent": "99%",
+            "sucTime": "50ms",
+            "sucDesc": "成功",
+            "fail": [
+                {
+                    "failCode": "ERR0001",
+                    "failCount": "12",
+                    "failPresent": "0.5%",
+                    "failTime": "1000ms",
+                    "failDesc": "超时"
+                },
+                {
+                    "failCode": "ERR0001",
+                    "failCount": "12",
+                    "failPresent": "0.5%",
+                    "failTime": "1000ms",
+                    "failDesc": "超时"
+                }
+            ]
+        },
+        {
+            "failSize":"2",
+            "trxCode": "CIBS1002",
+            "trxCodeCN": "汇出汇款请求接口",
+            "tranCount": "123",
+            "ansTime": "100ms",
+            "ansRet": "99.99%",
+            "sucRet": "99%",
+            "acceptRet": "99%",
+            "sucCode": "AAAAAAA",
+            "sucCount": "1234",
+            "sucPresent": "99%",
+            "sucTime": "50ms",
+            "sucDesc": "成功",
+            "fail": [
+                {
+                    "failCode": "ERR0001",
+                    "failCount": "12",
+                    "failPresent": "0.5%",
+                    "failTime": "1000ms",
+                    "failDesc": "超时"
+                },
+                {
+                    "failCode": "ERR0001",
+                    "failCount": "12",
+                    "failPresent": "0.5%",
+                    "failTime": "1000ms",
+                    "failDesc": "超时"
+                }
+            ]
+        }
+    ]
+}
