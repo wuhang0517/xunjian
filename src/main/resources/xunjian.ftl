@@ -48,14 +48,22 @@
    <Interior ss:Color="#4F81BD" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s63">
-   <NumberFormat ss:Format="Percent"/>
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+      <Borders>
+      <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      </Borders>
   </Style>
   <Style ss:ID="s66">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"
-     ss:Color="#000000"/>
-   </Borders>
+     <Borders>
+      <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+      <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#000000"/>
+     </Borders>
+     <NumberFormat ss:Format="Percent"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="每日巡检指标">
@@ -79,28 +87,30 @@
    </Row>
    <#list record as record>
     <Row ss:AutoFitHeight="0">
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.trxCode}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.trxCodeCN}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.tranCount}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.ansTime}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.ansRet}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.sucRet}</Data></Cell>
-      <Cell ss:MergeDown="${record.failSize}" ss:StyleID="s66"><Data ss:Type="String">${record.acceptRet}</Data></Cell>
-      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucCode}</Data></Cell>
-      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucCount}</Data></Cell>
-      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucPresent}</Data></Cell>
-      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucTime}</Data></Cell>
-      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucDesc}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.trxCode}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.trxCodeCN!''}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.tranCount}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.ansTime}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.ansRet}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.sucRet}</Data></Cell>
+      <Cell ss:MergeDown="${record.failSize!'0'}" ss:StyleID="s66"><Data ss:Type="String">${record.acceptRet}</Data></Cell>
+      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucCode!''}</Data></Cell>
+      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucCount!''}</Data></Cell>
+      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucPresent!''}</Data></Cell>
+      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucTime!''}</Data></Cell>
+      <Cell ss:StyleID="s63"><Data ss:Type="String">${record.sucDesc!''}</Data></Cell>
     </Row>
-    <#list record.fail as fail>
+    <#if record.fail??>
+     <#list record.fail as fail>
       <Row ss:AutoFitHeight="0">
-        <Cell ss:Index="8" ss:StyleID="s63"><Data ss:Type="String">${fail.failCode}</Data></Cell>
-        <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failCount}</Data></Cell>
-        <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failPresent}</Data></Cell>
-        <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failTime}</Data></Cell>
-        <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failDesc}</Data></Cell>
+       <Cell ss:Index="8" ss:StyleID="s63"><Data ss:Type="String">${fail.failCode}</Data></Cell>
+       <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failCount}</Data></Cell>
+       <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failPresent!''}</Data></Cell>
+       <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failTime}</Data></Cell>
+       <Cell ss:StyleID="s63"><Data ss:Type="String">${fail.failDesc!''}</Data></Cell>
       </Row>
-    </#list>
+     </#list>
+    </#if>
    </#list>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

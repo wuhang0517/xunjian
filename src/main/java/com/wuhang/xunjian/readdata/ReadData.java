@@ -1,5 +1,7 @@
 package com.wuhang.xunjian.readdata;
 
+import com.wuhang.xunjian.pojo.TempData;
+
 import java.io.File;
 
 /**
@@ -17,7 +19,7 @@ public interface ReadData {
      * @param file
      * @return
      */
-    String readDataFromFile(File file);
+    TempData readDataFromFile(File file);
 
     /**
      * 将从文件读到的数据转换为模版需要的数据
@@ -25,5 +27,5 @@ public interface ReadData {
      * @param data
      * @return
      */
-    String convertTemp(String data);
+    String convertTempData(String data);
 }

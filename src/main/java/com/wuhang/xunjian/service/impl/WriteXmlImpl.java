@@ -5,6 +5,7 @@ import com.wuhang.xunjian.service.WriteXml;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
 import java.io.Reader;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @Date 2020/10/30 14:02
  * @Version 1.0
  */
+@Component
 public class WriteXmlImpl implements WriteXml {
 
     static Configuration configuration;
@@ -41,6 +43,6 @@ public class WriteXmlImpl implements WriteXml {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return sw.toString();
     }
 }

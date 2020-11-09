@@ -1,6 +1,7 @@
 package com.wuhang.xunjian.readdata.impl;
 
 import com.csvreader.CsvReader;
+import com.wuhang.xunjian.pojo.TempData;
 import com.wuhang.xunjian.readdata.ReadData;
 
 import java.io.File;
@@ -18,7 +19,7 @@ import java.nio.charset.Charset;
  */
 public class ReadDataFromCsv implements ReadData {
     @Override
-    public String readDataFromFile(File file) {
+    public TempData readDataFromFile(File file) {
         try {
             InputStream fileInputStream = new FileInputStream(file);
             CsvReader csvReader = new CsvReader(fileInputStream, Charset.forName("UTF-8"));
@@ -37,7 +38,7 @@ public class ReadDataFromCsv implements ReadData {
     }
 
     @Override
-    public String convertTemp(String data) {
+    public String convertTempData(String data) {
         return null;
     }
 }

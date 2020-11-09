@@ -1,10 +1,12 @@
 package com.wuhang.xunjian.readdata.factory;
 
+import com.wuhang.xunjian.pojo.TempData;
 import com.wuhang.xunjian.readdata.ReadData;
 import com.wuhang.xunjian.readdata.impl.ReadDataFromCsv;
 import com.wuhang.xunjian.readdata.impl.ReadDataFromJson;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,7 +18,7 @@ import java.util.Map;
  */
 public class ReadDataFactory {
 
-    Map<String, ReadData> readDataMap;
+    Map<String, ReadData> readDataMap = new HashMap<>();
 
     private ReadDataFactory() {
         ReadData readDataFromCsv = new ReadDataFromCsv();
@@ -40,13 +42,12 @@ public class ReadDataFactory {
      * @param file
      * @return
      */
-    public String read(File file) {
-
-        String[] names = file.getName().split(".");
+    public TempData read(File file) {
+        String[] names = file.getName().split("\\.");
         String suffix = names[names.length - 1];
         ReadData readData = readDataMap.get(suffix);
-        String data = readData.readDataFromFile(file);
-        return readData.convertTemp(data);
+        TempData data = readData.readDataFromFile(file);
+        return data;
     }
 
 
